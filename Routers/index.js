@@ -1,11 +1,11 @@
 const router = require('express').Router()
 const routerStudent = require('./routerStudent')
 // const routerMovie = require('./routerMovie')
-// const routerFavourite = require('./routerFavourite')
+const routerBook = require('./routerBook')
 // const errorHandler = require('../middlewares/errorHandler')
 
 router.use('/students', routerStudent)
-// router.use('/favourites', routerFavourite)
+router.use('/books', routerBook)
 // router.use('/movies', routerMovie)
 
 // router.use(errorHandler)
