@@ -20,13 +20,13 @@ class ControllerStudent {
   static async login(req, res, next) {
     const { email, password } = req.body
     try {
-      const user = await Student.findOne({ where: { email } })
-      if (!user) {
+      const student = await Student.findOne({ where: { email } })
+      if (!student) {
         throw ({ name: "Email/Password is wrong" })
       } else {
-        if (checkPassword(password, user.password)) {
-          const access_token = signToken({ id: user.id, email: user.email, role: user.role })
-          res.status(200).json({ id: user.id, username: user.username, email: user.email, access_token })
+        if (checkPassword(password, student.password)) {
+          const access_token = signToken({ id: student.id, email: student.email, username: student.username })
+          res.status(200).json({ id: student.id, username: student.username, email: student.email, access_token })
         } else {
           throw ({ name: "Email/Password is wrong" })
         }
@@ -69,8 +69,12 @@ class ControllerStudent {
     try {
       const foundStudent = await Student.findOne({ where: { id: req.user.id } })
       if (foundStudent) {
-        const result = await Student.update(data, { where: { id: req.user.id }, returning: true })
-        res.status(200).json(result[1][0])
+        const result = await Student.update(data, { where: { id: req.user.id }, returning: true, individualHooks: true })
+        res.status(200).json({
+          id: result[1][0].id,
+          username: result[1][0].username,
+          email: result[1][0].email,
+        })
       } else {
         throw ({ name: 'Data not found' })
       }

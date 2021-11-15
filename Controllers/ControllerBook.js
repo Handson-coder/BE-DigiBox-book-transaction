@@ -18,7 +18,7 @@ class ControllerBook {
         res.status(200).json(result)
       }
       else {
-        throw ({ name: 'Data not found' })
+        throw ({ name: 'Book is not found' })
       }
     } catch (err) {
       next(err)
@@ -29,6 +29,7 @@ class ControllerBook {
     const data = {
       title: req.body.title,
       price: req.body.price,
+      is_rent: false
     }
     try {
       const result = await Book.create(data)
@@ -46,7 +47,7 @@ class ControllerBook {
         await Book.destroy({ where: { id } })
         res.status(200).json({ message: `Book with title ${foundBook.title} has been deleted` })
       } else {
-        throw ({ name: 'Data not found' })
+        throw ({ name: 'Book is not found' })
       }
     } catch (err) {
       next(err)
@@ -58,6 +59,7 @@ class ControllerBook {
     const data = {
       title: req.body.title,
       price: req.body.price,
+      is_rent: false
     }
     try {
       const foundBook = await Book.findByPk(id)
@@ -65,7 +67,7 @@ class ControllerBook {
         const result = await Book.update(data, { where: { id }, returning: true })
         res.status(200).json(result[1][0])
       } else {
-        throw ({ name: 'Data not found' })
+        throw ({ name: 'Book is not found' })
       }
     } catch (err) {
       next(err)

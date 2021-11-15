@@ -1,30 +1,37 @@
 [
   {
     "title": "Guru Aini",
-    "price": 99000
+    "price": 99000,
+    "is_rent": false
   },
   {
     "title": "Kamu Terlalu Banyak Bercanda",
-    "price": 125000
+    "price": 125000,
+    "is_rent": false
   },
   {
     "title": "Jika Kita Tak Pernah Jadi Apa-apa",
-    "price": 88000
+    "price": 88000,
+    "is_rent": false
   },
   {
     "title": "Kamu Gak Sendiri",
-    "price": 88000
+    "price": 88000,
+    "is_rent": false
   },
   {
     "title": "Segala-galanya Ambyar",
-    "price": 90000
+    "price": 90000,
+    "is_rent": false
   },
   {
     "title": "Sebuah Seni Untuk Bersikap Bodo Amat",
-    "price": 67000
+    "price": 67000,
+    "is_rent": false
   },
   {
     "title": "How to Win Friends and Influence People",
-    "price": 138000
+    "price": 138000,
+    "is_rent": false
   }
 ]

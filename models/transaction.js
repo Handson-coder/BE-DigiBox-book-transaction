@@ -11,15 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Transaction.belongsTo(models.Student, { foreignKey: 'StudentId' })
+      Transaction.belongsTo(models.Book, { foreignKey: 'BookId' })
     }
   };
   Transaction.init({
-    UserId: {
+    StudentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        notEmpty: { msg: 'UserId is required' },
-        notNull: { msg: 'UserId is required' }
+        notEmpty: { msg: 'StudentId is required' },
+        notNull: { msg: 'StudentId is required' }
       }
     },
     BookId: {
@@ -30,12 +32,12 @@ module.exports = (sequelize, DataTypes) => {
         notNull: { msg: 'BookId is required' }
       }
     },
-    rent_time: {
+    rent_date: {
       type: DataTypes.DATE,
       allowNull: false,
       validate: {
-        notEmpty: { msg: 'Rent Time is required' },
-        notNull: { msg: 'Rent Time is required' }
+        notEmpty: { msg: 'Rent Date is required' },
+        notNull: { msg: 'Rent Date is required' }
       }
     },
     due_date_rent: {
@@ -53,6 +55,9 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: { msg: 'Due Date Rent is required' },
         notNull: { msg: 'Due Date Rent is required' }
       }
+    },
+    is_paid: {
+      type: DataTypes.BOOLEAN,
     }
   }, {
     sequelize,

@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      UserId: {
+      StudentId: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      rent_time: {
+      rent_date: {
         allowNull: false,
         type: Sequelize.DATE
       },
@@ -27,6 +27,9 @@ module.exports = {
       rent_price: {
         allowNull: false,
         type: Sequelize.INTEGER
+      },
+      is_paid: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

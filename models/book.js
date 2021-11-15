@@ -29,6 +29,14 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: { msg: 'Price is required' },
         notNull: { msg: 'Price is required' }
       }
+    },
+    is_rent: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Rent Status is required' },
+        notNull: { msg: 'Rent Status is required' }
+      }
     }
   }, {
     sequelize,

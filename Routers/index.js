@@ -1,13 +1,13 @@
 const router = require('express').Router()
 const routerStudent = require('./routerStudent')
-// const routerMovie = require('./routerMovie')
+const routerTransaction = require('./routerTransaction')
 const routerBook = require('./routerBook')
-// const errorHandler = require('../middlewares/errorHandler')
+const ErrorHandler = require('../middlewares/ErrorHandler')
 
 router.use('/students', routerStudent)
 router.use('/books', routerBook)
-// router.use('/movies', routerMovie)
+router.use('/transactions', routerTransaction)
 
-// router.use(errorHandler)
+router.use(ErrorHandler)
 
 module.exports = router
